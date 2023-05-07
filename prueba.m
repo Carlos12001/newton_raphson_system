@@ -1,4 +1,4 @@
-warning('off', 'all');
+
 
 % Definir funciones no lineales
 f = {'x^2 + y^2 + z^2 - 1', '2*x^2+y^2-4*z', '3*x^2-4*y+z^2'};
@@ -9,7 +9,7 @@ vars = {'x', 'y', 'z'};
 % Establecer parámetros
 x0 = [0.5; 0.5; 0.5];
 tol = 1e-9;
-iterMax = 3;
+iterMax = 10;
 
 % Llamar a la función newton_raphson_system y mostrar resultados
 [x_k, k, err, errors] = newton_raphson_system(x0, f, vars, tol, iterMax);
