@@ -1,6 +1,6 @@
 function [x_k, k, e_k] = pregunta2(x0, f, vars,
                                                 tol=1e-6, iterMax=10)
-  [x_k, k, e_k] = newton_raphson_system(x0, f, vars,tol, iterMax)
+  [x_k, k, e_k] = newton_raphson_system(x0, f, vars,tol, iterMax);
 end
 
 function [x_k, k, e_k] = newton_raphson_system(x0, f, vars,
@@ -40,8 +40,8 @@ function [x_k, k, e_k] = newton_raphson_system(x0, f, vars,
     errors = [errors; e_k];
     x_k = x_k1;
     k = k + 1;
-    fprintf("x_%i = \n", k);
-    disp(x_k);
+    % fprintf("x_%i = \n", k);
+    % disp(x_k);
   end
 
   %Grafico

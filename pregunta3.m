@@ -37,6 +37,8 @@ vars = {'x1', 'x2'};
 
 
 % Llama a la funcion fa
+fprintf("\n----------------\nPara fa = \n")
+disp(fa)
 [x_k, k, e_k] = pregunta2(x0, fa, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
@@ -46,6 +48,8 @@ fprintf('k = %.i\n', k)
 fprintf('e_%.i = %.2e\n', k, e_k)
 
 % Llama a la funcion fb
+fprintf("\n----------------\nPara fb = \n")
+disp(fb)
 [x_k, k, e_k] = pregunta2(x0, fb, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
@@ -55,6 +59,8 @@ fprintf('k = %.i\n', k)
 fprintf('e_%.i = %.2e\n', k, e_k)
 
 % Llama a la funcion fc
+fprintf("\n----------------\nPara fc = \n")
+disp(fc)
 [x_k, k, e_k] = pregunta2(x0, fc, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
@@ -64,6 +70,8 @@ fprintf('k = %.i\n', k)
 fprintf('e_%.i = %.2e\n', k, e_k)
 
 % Llama a la funcion fd
+fprintf("\n----------------\nPara fd = \n")
+disp(fd)
 [x_k, k, e_k] = pregunta2(x0, fd, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
@@ -73,6 +81,8 @@ fprintf('k = %.i\n', k)
 fprintf('e_%.i = %.2e\n', k, e_k)
 
 % Llama a la funcion fe
+fprintf("\n----------------\nPara fe = \n")
+disp(fe)
 [x_k, k, e_k] = pregunta2(x0, fe, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
@@ -87,6 +97,8 @@ x0 = [0.5; 0.5; 0.5; 0.5];
 vars = {'x1', 'x2', 'x3', 'x4'};
 
 % Llama a la función fg
+fprintf("\n----------------\nPara fg = \n")
+disp(fg)
 [x_k, k, e_k] = pregunta2(x0, fg, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
