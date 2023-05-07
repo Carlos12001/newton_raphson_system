@@ -8,8 +8,6 @@ vars = {'x', 'y', 'z'};
 
 % Establecer parámetros
 x0 = [0.5; 0.5; 0.5];
-tol = 1e-9;
-iterMax = 10;
 
 % Llamar a la función newton_raphson_system y mostrar resultados
 [x_k, k, err, errors] = newton_raphson_system(x0, f, vars, tol, iterMax);

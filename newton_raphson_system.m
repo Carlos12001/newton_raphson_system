@@ -1,4 +1,5 @@
-function [x_k, k, e_k, errors] = newton_raphson_system(x0, f, vars, tol, iterMax)
+function [x_k, k, e_k, errors] = newton_raphson_system(x0, f, vars, 
+                                                tol=1e-9, iterMax=10)
   warning('off', 'all');
   pkg load symbolic;
   % Crear símbolos para las funciones y las variables
