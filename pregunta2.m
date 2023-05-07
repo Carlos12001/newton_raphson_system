@@ -1,3 +1,8 @@
+function [x_k, k, e_k] = pregunta2(x0, f, vars,
+                                                tol=1e-6, iterMax=10)
+  [x_k, k, e_k] = newton_raphson_system(x0, f, vars,tol, iterMax)
+end
+
 function [x_k, k, e_k] = newton_raphson_system(x0, f, vars,
                                                 tol=1e-6, iterMax=10)
   warning('off', 'all');
