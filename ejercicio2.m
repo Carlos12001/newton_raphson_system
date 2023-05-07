@@ -35,8 +35,8 @@ function [x_k, k, e_k] = newton_raphson_system(x0, f, vars,
     errors = [errors; e_k];
     x_k = x_k1;
     k = k + 1;
-    fprintf("x_%i = \n", k);
-    disp(x_k);
+    %fprintf("x_%i = \n", k);
+    %disp(x_k);
   end
 
   %Grafico
