@@ -1,5 +1,5 @@
-function [x_k, k, e_k] = newton_raphson_system(x0, f, vars, 
-                                                tol=1e-9, iterMax=10)
+function [x_k, k, e_k] = newton_raphson_system(x0, f, vars,
+                                                tol=1e-6, iterMax=10)
   warning('off', 'all');
   pkg load symbolic;
   % Hace simbolico las funciones y las variables
@@ -9,36 +9,36 @@ function [x_k, k, e_k] = newton_raphson_system(x0, f, vars,
     f_sym(i) = sym(f{i});
     x_sym(i) = sym(vars{i});
   end
-  
+
   % Calcula el Jacobiano
   J_sym = jacobian(f_sym, x_sym);
-  
+
   % Vuelve numericas a las funciones
   f_func = @(input) double(subs(f_sym, x_sym, num2cell(input)));
   J_func = @(input) double(subs(J_sym, x_sym, num2cell(input)));
-  
+
   % Iniciar variables
   x_k = x0;
   e_k = inf;
   k = 0;
   errors = [];
-  
+
   % Metodo de Newton Raphson
   while e_k > tol && k < iterMax
     F = f_func(x_k).';
     J = J_func(x_k);
     y = pseudeo_inverse(J, F, tol, 10);
-    
+
     x_k1 = x_k - y;
     e_k = norm(F, 2);
-    
+
     errors = [errors; e_k];
     x_k = x_k1;
     k = k + 1;
     fprintf("x_%i = \n", k);
     disp(x_k);
   end
-  
+
   %Grafico
   figure;
   plot(1:k, errors, '-o');

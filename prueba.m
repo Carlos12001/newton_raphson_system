@@ -1,10 +1,10 @@
 
 
 % Definir funciones no lineales
-f = {'x^2 + y^2 + z^2 - 1', '2*x^2+y^2-4*z', '3*x^2-4*y+z^2'};
+f = {'x^2 + y^2 + z^2 - 1', '2*x^2+y^2-4*z', '1'};
 
 % Definir variables
-vars = {'x', 'y', 'z'};
+vars = {'x', 'y'};
 
 % Valores inciales
 x0 = [0.5; 0.5; 0.5];
