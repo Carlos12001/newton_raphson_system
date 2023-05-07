@@ -1,8 +1,8 @@
-function [x_k, k, e_k, errors] = newton_raphson_system(x0, f, vars, 
+function [x_k, k, e_k] = newton_raphson_system(x0, f, vars, 
                                                 tol=1e-9, iterMax=10)
   warning('off', 'all');
   pkg load symbolic;
-  % Crear símbolos para las funciones y las variables
+  % Hace simbolico las funciones y las variables
   f_sym = sym(zeros(1, length(f)));
   x_sym = sym(zeros(1, length(vars)));
   for i = 1:length(f)
@@ -10,20 +10,20 @@ function [x_k, k, e_k, errors] = newton_raphson_system(x0, f, vars,
     x_sym(i) = sym(vars{i});
   end
   
-  % Calcular el Jacobiano
+  % Calcula el Jacobiano
   J_sym = jacobian(f_sym, x_sym);
   
-  % Definir las funciones a utilizar en Octave
+  % Vuelve numericas a las funciones
   f_func = @(input) double(subs(f_sym, x_sym, num2cell(input)));
   J_func = @(input) double(subs(J_sym, x_sym, num2cell(input)));
   
-  % Inicializar variables
+  % Iniciar variables
   x_k = x0;
   e_k = inf;
   k = 0;
   errors = [];
   
-  % Bucle del método de Newton-Raphson
+  % Metodo de Newton Raphson
   while e_k > tol && k < iterMax
     F = f_func(x_k).';
     J = J_func(x_k);
@@ -39,12 +39,14 @@ function [x_k, k, e_k, errors] = newton_raphson_system(x0, f, vars,
     disp(x_k);
   end
   
-  % Crear gráfica de iteraciones vs errores
+  %Grafico
   figure;
   plot(1:k, errors, '-o');
-  xlabel('Iteraciones');
-  ylabel('Error');
-  title('Newton-Raphson: Iteraciones vs Error');
+  xlabel('Iteraciones', 'FontSize', 24);
+  ylabel('Error', 'FontSize', 24);
+  title('Newton-Raphson: Iteraciones vs Error', 'FontSize', 36);
+  set(gca, 'FontSize', 24);
+
 end
 
 function [y, err, k] = pseudeo_inverse(A, b, tol=1e-9, max_iter=2500)
