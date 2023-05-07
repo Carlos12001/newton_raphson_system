@@ -10,7 +10,7 @@ vars = {'x', 'y', 'z'};
 x0 = [0.5; 0.5; 0.5];
 
 % Llama a la funcion
-[x_k, k, e_k] = newton_raphson_system(x0, f, vars, tol, iterMax);
+[x_k, k, e_k] = newton_raphson_system(x0, f, vars);
 
 fprintf('Solución aproximada:\nxk = \n')
 disp(x_k)
